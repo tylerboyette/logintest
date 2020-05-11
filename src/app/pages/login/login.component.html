@@ -1,0 +1,23 @@
+<div class="login-card">
+  <form class="login-form" (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+    <h1>Log In</h1>
+    <mat-form-field class="login-form-full-width">
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="user@example.com" formControlName="email">
+      <mat-error *ngIf="email.invalid && email.errors.required">Please type email address.</mat-error>
+      <mat-error *ngIf="email.invalid && email.hasError('email')">Invalid emaill address.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="login-form-full-width">
+      <mat-label>Password</mat-label>
+      <input [type] = "!show_password ? 'password': 'text'" matInput placeholder="****" formControlName="password">
+      <mat-icon matSuffix *ngIf="show_password" (click)="show_password=!show_password">visibility</mat-icon>
+      <mat-icon matSuffix *ngIf="!show_password" (click)="show_password=!show_password">visibility_off</mat-icon>
+      <mat-error *ngIf="password.invalid && password.errors.required">Please type password.</mat-error>
+    </mat-form-field>
+
+    <div class="login-button-row">
+      <button mat-raised-button color="primary">Log in</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,7 @@
+.container {
+  min-height: 100%;
+  padding: 15% 30%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
