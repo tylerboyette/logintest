@@ -19,8 +19,7 @@ export class AuthApiService {
   constructor(private http: HttpClient) { }
 
   login(user: LoginUser):Observable<any>{
-    console.log(user);
-    const url = `${this.baseUrl}/login/`
+    const url = `${this.baseUrl}/login`
     return this.http.post(url,user,httpOptions);
   }
 

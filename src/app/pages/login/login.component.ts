@@ -44,9 +44,14 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(user).subscribe(
       (res)=>{
-        localStorage.setItem("token",res.token)
-        this.notifyService.showSuccess("Login success", "Success")
-        this.router.navigate(['/dashboard']);
+        if(res.loggedIn){
+          localStorage.setItem("token",res.token)
+          this.notifyService.showSuccess("Login success", "Success")
+          this.router.navigate(['/dashboard']);
+        }
+        else{
+          this.notifyService.showError("Login Fail", "Error")
+        }
       },
       (error)=>{
         this.notifyService.showError("Login Fail", "Error")
